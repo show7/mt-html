@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,20 +24,24 @@
     }
   </script>
 </head>
-<body class="text-gray-900 bg-gray-50">
+
+<body class="text-gray-900 bg-[#F5F5F7]">
 
   <!-- 顶部导航栏 -->
-  <header class="fixed top-0 left-0 z-50 w-full bg-white shadow">
-    <div class="flex items-center justify-between px-4 py-3 mx-auto max-w-7xl">
+  <header class="fixed top-0 left-0 z-50 w-full bg-[#FAFAFA] ">
+    <div class="flex items-center  justify-between px-4 py-3 mx-auto max-w-5xl md:justify-start md:gap-32">
       <div class="flex items-center gap-2">
-        <img src="assets/icon.png" alt="Logo" class="h-8">
+        <img src="assets/icon.png" alt="Logo" class="h-6">
       </div>
-      <nav class="hidden space-x-6 text-sm md:flex">
+      <nav class="hidden space-x-6 text-xs text-[#323232] md:flex justify-between flex-1">
+        <a href="#" class="hover:text-red-500">首页</a>
         <a href="#" class="hover:text-red-500">功能介绍</a>
         <a href="#" class="hover:text-red-500">会员权益</a>
         <a href="#" class="hover:text-red-500">下载中心</a>
         <a href="#" class="hover:text-red-500">帮助</a>
         <a href="#" class="hover:text-red-500">系统学习</a>
+        <img class="w-[16.8px] h-[16.8px] hidden md:block" src=" assets/seaarch-icon.png" alt="">
+
       </nav>
       <button id="menu-btn" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -54,85 +59,112 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="pt-24 text-center bg-gray-100">
-    <div class="flex items-center gap-2">
-      <img src="assets/logo.png" alt="Logo" class="h-14">
-      <span class="text-lg font-bold">因为专注所以专业</span>
-    </div>
-    <div class="max-w-5xl px-4 mx-auto animate-fadeInUp">
-      <img src="assets/hex-bg.png" alt="蜂巢背景图" class="mx-auto mb-6">
-      <div class="mb-2 text-sm text-gray-500">su21-su2025</div>
-      <div class="flex justify-center gap-4">
-        <a href="#" class="px-6 py-2 text-white transition-transform bg-red-600 rounded-full hover:scale-105">Windows</a>
-        <a href="#" class="px-6 py-2 text-white transition-transform bg-black rounded-full hover:scale-105">macOS</a>
+  <section class="pt-24 text-center bg-gray-100 mt-[52rpx]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center gap-2 relative mb-16">
+        <img src="assets/logo.png" alt="Logo" class="h-[85px]">
+        <span class="text-lg font-bold absolute left-24 top-14">因为专注所以专业</span>
+      </div>
+      <div class="animate-fadeInUp">
+        <img src="assets/hex-bg.png" alt="蜂巢背景图" class="mx-auto">
+        <div class="-mt-40 text-lg">
+          <div class="text-3xl text-black font-semibold">下载试用</div>
+          <div class="mb-6 mt-2  text-black">su21-su2025</div>
+          <div class="flex justify-center gap-4">
+            <a href="#"
+              class="px-8 py-2 text-white text-lg transition-transform bg-[#AF0000] rounded-full hover:scale-105">Windows</a>
+            <a href="#"
+              class="px-10 py-2 text-white text-lg transition-transform bg-black rounded-full hover:scale-105">macOS</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-end mt-14 gap-4">
+        <img class="h-8" src="assets/left-icon.png" alt="箭头">
+        <img class="h-8" src="assets/right-icon.png" alt="箭头">
       </div>
     </div>
   </section>
 
   <!-- 云海室内设计介绍 -->
   <section class="py-16">
-    <div class="grid items-center max-w-6xl gap-8 px-4 mx-auto md:grid-cols-2 animate-fadeInUp">
-      <div>
-        <h2 class="mb-4 text-2xl font-bold">云海室内设计</h2>
-        <ul class="space-y-4 text-base">
-          <li><span class="mr-2 font-bold text-red-600">◆</span>模块化拼装：像搭积木一样简单，轻松上手，简单便捷。</li>
-          <li><span class="mr-2 font-bold text-red-600">◆</span>所想即所得：简化建模流程，所想即所得。</li>
-        </ul>
-      </div>
-      <div>
+    <div class=" max-w-7xl px-4 mx-auto animate-fadeInUp">
+      <h2 class="text-[54px] font-bold mb-24">云海室内设计</h2>
+      <div class="relative">
         <img src="assets/snt.png" alt="室内图" class="shadow rounded-2xl">
+        <div class="absolute w-full h-full top-0 right-0 bottom-0 left-0 p-6">
+          <ul class="space-y-4">
+            <li class="flex">
+              <span class="mr-2 text-lg  text-[#AF0000] mt-1">◆</span>
+              <div>
+                <div class="text-3xl font-bold text-black flex items-center mb-2">
+                  模块化拼装：</div>
+                像搭积木一样简单，轻松上手，简单便捷。
+              </div>
+            </li>
+            <li class="flex pt-4">
+              <span class="mr-2 text-lg text-[#AF0000] mt-1">◆</span>
+              <div>
+                <div class="text-3xl font-bold text-black flex items-center mb-2">所想即所得：</div>
+                简化建模流程，所想即所得。
+              </div>
+            </li>
+          </ul>
+          <a href="/learnMore.html"
+            class="absolute right-6 bottom-6 inline-block px-8 py-2 text-white transition-transform bg-[#AF0000] rounded-full hover:bg-red-700 hover:scale-105">了解更多</a>
+        </div>
       </div>
-    </div>
-    <div class="max-w-6xl px-4 mx-auto mt-4 text-right">
-      <a href="/learnMore.html" class="inline-block px-4 py-2 text-white transition-transform bg-red-600 rounded-full hover:bg-red-700 hover:scale-105">了解更多</a>
     </div>
   </section>
 
   <!-- 功能优势卡片 -->
   <section class="py-16 bg-gray-100">
-    <div class="grid max-w-6xl grid-cols-1 gap-6 px-4 mx-auto md:grid-cols-2 animate-fadeInUp">
-      <div class="p-6 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
-        <img src="assets/home1.png" alt="室内图" class="shadow rounded-2xl">
-        <h3 class="mb-2 text-lg font-semibold">常用工具集，让su更快的运行。</h3>
+    <div class="grid max-w-7xl grid-cols-1 gap-6 px-4 mx-auto md:grid-cols-2 animate-fadeInUp">
+      <div class="py-6 px-10 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
+        <img src="assets/home1.png" alt="室内图" class="shadow rounded-2xl h-[92px]">
+        <h3 class="mb-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">常用工具集，让su更快的运行。</h3>
       </div>
-      <div class="p-6 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
-        <img src="assets/home2.png" alt="室内图" class="shadow rounded-2xl">
-        <h3 class="mb-2 text-lg font-semibold">云端库，更新更方便，筛选更简单。</h3>
+      <div class="py-6 px-10 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
+        <img src="assets/home2.png" alt="室内图" class="shadow rounded-2xl h-[92px]">
+        <h3 class="mb-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">云端库，更新更方便，筛选更简单。</h3>
       </div>
-      <div class="p-6 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
-        <img src="assets/home3.png" alt="室内图" class="shadow rounded-2xl">
-        <h3 class="mb-2 text-lg font-semibold">300%效率提升，建模更轻松。</h3>
+      <div class="py-6 px-10 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
+        <img src="assets/home3.png" alt="室内图" class="shadow rounded-2xl h-[92px]">
+        <h3 class="mb-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">300%效率提升，建模更轻松。</h3>
       </div>
-      <div class="p-6 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
-        <img src="assets/home4.png" alt="室内图" class="shadow rounded-2xl">
-        <h3 class="mb-2 text-lg font-semibold">一次买断或年费，好用不贵。</h3>
+      <div class="py-6 px-10 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
+        <img src="assets/home4.png" alt="室内图" class="shadow rounded-2xl h-[92px]">
+        <h3 class="mb-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">一次买断或年费，好用不贵。</h3>
       </div>
     </div>
   </section>
 
   <!-- 页脚 -->
-  <footer class="max-w-6xl py-8 text-sm text-center text-gray-500">
+  <footer class="max-w-7xl mx-auto py-8 px-4 text-sm text-center text-gray-500">
     <div class="flex justify-between">
-      <div class="flex items-center" >
-         <img src="assets/Link.png" alt="Logo" class="h-4" style="margin-right: 10px;">联系方式：T:1388209028
+      <div class="flex items-center">
+        <img src="assets/Link.png" alt="Logo" class="h-4" style="margin-right: 10px;">联系方式：T:1388209028
       </div>
       <!-- 悬浮图标按钮组 -->
-      <div class="flex flex-row ottom-6 right-4">
+      <div class="flex flex-row bottom-6 right-4 gap-4">
         <!-- 音乐按钮 -->
-        <button >
+        <button>
           <img src="assets/dy.png" alt="Logo" class="h-7">
         </button>
-        <button >
+        <button>
           <img src="assets/qq.png" alt="Logo" class="h-7">
         </button>
-        <button >
+        <button>
           <img src="assets/wx.png" alt="Logo" class="h-7">
         </button>
       </div>
 
     </div>
-    <p class="mt-2">Copyright © 2025 zhixdraw. All rights reserved.</p>
-    
+    <hr class="my-5" />
+
+    <div class="flex justify-between items-center">
+      <p class="mt-2">Copyright © 2025 zhixdraw. All rights reserved.</p>
+      <p>china</p>
+    </div>
 
   </footer>
 
@@ -146,4 +178,5 @@
   </script>
 
 </body>
+
 </html>
