@@ -6,25 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MT-Plugins 官网</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            fadeInUp: 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-          },
-        }
-      }
-    }
-  </script>
+
   <!-- Include components.js for header and footer -->
   <script src="js/components.js"></script>
+  <script src="js/tailwindcss.config.js"></script>
 </head>
 
 <body class="text-gray-900 bg-[#F5F5F7]">
@@ -61,7 +46,7 @@
     <div class=" container px-4 mx-auto animate-fadeInUp">
       <h2 class="text-[3.375rem] font-bold mb-24">云海室内设计</h2>
       <div class="relative">
-        <img src="assets/snt.png" alt="室内图" class="shadow rounded-2xl md:h-[33.75rem] md:object-cover">
+        <img src="assets/snt.png" alt="室内图" class="shadow rounded-2xl w-full">
         <div class="absolute w-full h-full top-0 right-0 bottom-0 left-0 px-8 py-10">
           <ul>
             <li class="flex">
