@@ -19,9 +19,9 @@ window.onload = () => {
         const baseFontSizes = {
           sm: '14px',
           md: '16px',
-          lg: '18px',
-          xl: '20px',
-          '2xl': '22px',
+          // lg: '18px',
+          // xl: '20px',
+          // '2xl': '22px',
         };
         const mediaQueries = {};
         for (const [screen, size] of Object.entries(screens)) {
