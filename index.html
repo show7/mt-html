@@ -22,7 +22,7 @@
         <span class="text-lg font-bold absolute left-24 top-14">因为专注所以专业</span>
       </div>
       <div class="animate-fadeInUp">
-        <img src="assets/hex-bg.png" alt="蜂巢背景图" class="w-full">
+        <img  id="banner-img"  src="" alt="" class="w-full">
         <div class=" text-lg">
           <div class="text-3xl text-black font-semibold">下载试用</div>
           <div class="mb-6 mt-2  text-black">su21-su2025</div>
@@ -35,12 +35,48 @@
         </div>
       </div>
       <div class="flex items-center justify-end mt-14 gap-4">
-        <img class="h-8" src="assets/left-icon.png" alt="箭头">
-        <img class="h-8" src="assets/right-icon.png" alt="箭头">
+        <img class="h-8" onclick="prevBanner()"  src="assets/left-icon.png" alt="箭头">
+        <img class="h-8" onclick="nextBanner()"  src="assets/right-icon.png" alt="箭头">
       </div>
     </div>
   </section>
-
+  <script>
+    const banners = [
+      {
+        img: 'assets/hex-bg.png',
+        title: '1',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&h=400&q=80',
+        title: '插件名称 2',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&h=400&q=80',
+        title: '插件名称 3',
+      },
+    ]
+  
+    let current = 0
+  
+    function updateBanner() {
+      const banner = banners[current]
+      document.getElementById('banner-img').src = banner.img
+      document.getElementById('banner-title').textContent = banner.title
+    }
+  
+    function nextBanner() {
+      current = (current + 1) % banners.length
+      updateBanner()
+    }
+  
+    function prevBanner() {
+      current = (current - 1 + banners.length) % banners.length
+      updateBanner()
+    }
+  
+    // 初始化
+    window.addEventListener('DOMContentLoaded', updateBanner)
+  </script>
   <!-- 云海室内设计介绍 -->
   <section class="py-16">
     <div class=" container px-4 mx-auto animate-fadeInUp">
@@ -77,19 +113,19 @@
     <div class="grid container grid-cols-1 gap-6 px-4 mx-auto md:grid-cols-2 animate-fadeInUp">
       <div class="py-6 px-10 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
         <img src="assets/home1.png" alt="室内图" class="shadow rounded-2xl h-[92px]">
-        <h3 class="mb-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">常用工具集，让su更快的运行。</h3>
+        <h3 class="mb-2 mt-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">常用工具集，让su更快的运行。</h3>
       </div>
       <div class="py-6 px-10 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
         <img src="assets/home2.png" alt="室内图" class="shadow rounded-2xl h-[92px]">
-        <h3 class="mb-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">云端库，更新更方便，筛选更简单。</h3>
+        <h3 class="mb-2 mt-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">云端库，更新更方便，筛选更简单。</h3>
       </div>
       <div class="py-6 px-10 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
         <img src="assets/home3.png" alt="室内图" class="shadow rounded-2xl h-[92px]">
-        <h3 class="mb-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">300%效率提升，建模更轻松。</h3>
+        <h3 class="mb-2 mt-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">300%效率提升，建模更轻松。</h3>
       </div>
       <div class="py-6 px-10 transition-shadow bg-white shadow rounded-xl hover:shadow-lg">
         <img src="assets/home4.png" alt="室内图" class="shadow rounded-2xl h-[92px]">
-        <h3 class="mb-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">一次买断或年费，好用不贵。</h3>
+        <h3 class="mb-2 mt-2 text-4xl text-[#1D1D1F] font-bold w-[78%] pl-6">一次买断或年费，好用不贵。</h3>
       </div>
     </div>
   </section>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MT-Plugins 官网</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fadeInUp: 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Include components.js for header and footer -->
+  <script src="js/components.js"></script>
+</head>
+
+<body class="text-gray-900 bg-[#F5F5F7]">
+  <main>
+    <!-- 页面标题 -->
+    <div class="bg-white">
+      <section class="container mx-auto px-4 py-8 ">
+        <h1 class="text-[3.36rem] font-bold mb-8 text-[#1D1D1F]">下载中心</h1>
+
+          <!-- 主横幅 -->
+          <div id="banner" class="relative rounded-xl overflow-hidden mb-12">
+            <div class="aspect-[16/6] w-full bg-gray-100">
+              <img id="banner-img" src="" alt="banner" class="w-full h-full object-cover" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent flex items-center">
+              <div class="p-6 md:p-12 max-w-md text-white">
+                <h2 id="banner-title" class="text-2xl md:text-3xl font-bold text-[#1D1D1F] mb-2"></h2>
+                <p id="banner-desc" class="text-sm text-[#1D1D1F] md:text-base mb-4"></p>
+                <button class="bg-[#AF0000] hover:bg-red-700 text-white px-10 py-2 rounded-full font-medium transition-colors">
+                  下载
+                </button>
+              </div>
+            </div>
+            <!-- 导航箭头 -->
+  
+          </div>
+  
+          <div class="flex justify-end items-center space-x-4">
+             <!-- 导航箭头 -->
+            <button onclick="prevBanner()" class="rounded-full hover:opacity-60">
+              <img src="assets/left-icon.png" class="w-8 h-8" />
+            </button>
+            <button onclick="nextBanner()" class="rounded-full hover:opacity-60">
+              <img src="assets/right-icon.png" class="w-8 h-8" />
+            </button>
+          </div>
+
+          
+      
+        <script>
+          const banners = [
+            {
+              img: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
+              title: '插件名称 1',
+              desc: '使用的木木一辑插件，轻松上手，简单便捷。',
+            },
+            {
+              img: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&h=400&q=80',
+              title: '插件名称 2',
+              desc: '强大的 AI 辅助设计，创意不设限。',
+            },
+            {
+              img: 'https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&h=400&q=80',
+              title: '插件名称 3',
+              desc: '兼容 SU 和 3Dmax，多版本支持。',
+            },
+          ]
+        
+          let current = 0
+        
+          function updateBanner() {
+            const banner = banners[current]
+            document.getElementById('banner-img').src = banner.img
+            document.getElementById('banner-title').textContent = banner.title
+            document.getElementById('banner-desc').textContent = banner.desc
+          }
+        
+          function nextBanner() {
+            current = (current + 1) % banners.length
+            updateBanner()
+          }
+        
+          function prevBanner() {
+            current = (current - 1 + banners.length) % banners.length
+            updateBanner()
+          }
+        
+          // 初始化
+          window.addEventListener('DOMContentLoaded', updateBanner)
+        </script>
+        
+        <!-- 软件图标区域 -->
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-4 mb-16 mt-6">
+          <div class="software-icon flex flex-col items-center">
+            <div class="bg-red-50 p-3 rounded-lg mb-2">
+              <svg class="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19.772 4.006c-.737-.737-1.622-1.11-2.66-1.11H6.888c-1.038 0-1.923.373-2.66 1.11-.737.737-1.11 1.622-1.11 2.66v10.668c0 1.038.373 1.923 1.11 2.66.737.737 1.622 1.11 2.66 1.11h10.224c1.038 0 1.923-.373 2.66-1.11.737-.737 1.11-1.622 1.11-2.66V6.666c0-1.038-.373-1.923-1.11-2.66zm-3.772 12.55l-3.5-3.5-3.5 3.5-.944-.944 3.5-3.5-3.5-3.5.944-.944 3.5 3.5 3.5-3.5.944.944-3.5 3.5 3.5 3.5-.944.944z" />
+              </svg>
+            </div>
+            <a href="down2.html" class="text-sm text-[#1D1D1F] text-center hover:text-red-600">
+              Sketch up草图大师
+            </a>
+          </div>
+          <div class="software-icon flex flex-col items-center">
+            <div class="bg-teal-50 p-3 rounded-lg mb-2">
+              <svg class="w-8 h-8 text-teal-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+           <a href="down2.html" class="text-sm text-[#1D1D1F] text-center hover:text-red-600">3DsMAX</a>
+          </div>
+          <div class="software-icon flex flex-col items-center">
+            <div class="bg-pink-50 p-3 rounded-lg mb-2">
+              <svg class="w-8 h-8 text-pink-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+           <a href="down2.html" class="text-sm text-[#1D1D1F] text-center hover:text-red-600">Auto CAD</a>
+          </div>
+          <div class="software-icon flex flex-col items-center">
+            <div class="bg-blue-50 p-3 rounded-lg mb-2">
+              <svg class="w-8 h-8 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1z" />
+              </svg>
+            </div>
+           <a href="down2.html" class="text-sm text-[#1D1D1F] text-center hover:text-red-600">Photoshop</a>
+          </div>
+          <div class="software-icon flex flex-col items-center">
+            <div class="bg-indigo-50 p-3 rounded-lg mb-2">
+              <svg class="w-8 h-8 text-indigo-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+           <a href="down2.html" class="text-sm text-[#1D1D1F] text-center hover:text-red-600">Lumion</a>
+          </div>
+          <div class="software-icon flex flex-col items-center">
+            <div class="bg-blue-50 p-3 rounded-lg mb-2">
+              <svg class="w-8 h-8 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+           <a href="down2.html" class="text-sm text-[#1D1D1F] text-center hover:text-red-600">VRay for 3Dsmax</a>
+          </div>
+          <div class="software-icon flex flex-col items-center">
+            <div class="bg-orange-50 p-3 rounded-lg mb-2">
+              <svg class="w-8 h-8 text-orange-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+           <a href="down2.html" class="text-sm text-[#1D1D1F] text-center hover:text-red-600">Corona渲染器</a>
+          </div>
+          <div class="software-icon flex flex-col items-center">
+            <div class="bg-gray-50 p-3 rounded-lg mb-2">
+              <svg class="w-8 h-8 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+           <a href="down2.html" class="text-sm text-[#1D1D1F] text-center hover:text-red-600">ACDSee</a>
+          </div>
+        </div>
+
+        <!-- 分类部分 -->
+        <section class="mb-16 ">
+          <h1 class="text-[3.36rem] font-bold mb-8 text-[#1D1D1F]">分类</h1>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <button class="bg-black text-white px-6 py-2 rounded-full text-base">所有</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">3D建模</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">AI绘图</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">渲染器</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">CAD制图</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">图像处理</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">视频编辑</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">系统办公</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">图片管理</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">工业设计</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">网页制作</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">MAC版软件</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">建筑机软件</button>
+            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">工具软件</button>
+          </div>
+        </section>
+      </section>
+    </div>
+    <!-- 名称1 -->
+    <section class="container mx-auto px-4 py-8 mb-12">
+      <h2 class="text-xl font-bold mb-4">名称1</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class="p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">Corona渲染器</a>
+        </div>
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class=" p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">ACDSee</a>
+        </div>
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class=" p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">VRay for 3Dsmax</a>
+        </div>
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class=" p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">3DsMAX</a>
+        </div>
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class=" p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">Sketch up草图大师</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 名称2 -->
+    <section class="container mx-auto px-4 py-8 mb-12">
+      <h2 class="text-xl font-bold mb-4">名称2</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class="p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">Corona渲染器</a>
+        </div>
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class=" p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">ACDSee</a>
+        </div>
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class=" p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">VRay for 3Dsmax</a>
+        </div>
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class=" p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">3DsMAX</a>
+        </div>
+        <div
+          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+          <div class=" p-3 rounded-lg">
+            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
+          </div>
+           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">Sketch up草图大师</a>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+</body>
+
+</html>

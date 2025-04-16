@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>下载详情</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fadeInUp: 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Include components.js for header and footer -->
+  <script src="js/components.js"></script>
+</head>
+
+<body class="text-gray-900 bg-gray-50 " style="background-color: #F5F5F7;">
+
+  <section class="bg-gray-50 text-gray-800 px-4 md:px-8 py-10">
+    <!-- 面包屑导航 -->
+    <nav class="text-sm text-gray-500 mb-6 sm:pl-0 md:pl-[120px] ">
+      <a href="index.html" class="hover:underline "> <img src="assets/Link.png" style="display: inline-block;" alt="插件图标" class="w-[20px] h-[20px]" /> &gt;
+      <a href="download.html" class="hover:underline text-black  font-bold">下载中心</a> &gt;
+      <a href="#" class="hover:underline text-black  font-bold">SketchUp 插件</a> &gt;
+      <a class="font-medium">SU/3Dmax AI绘图插件</a>
+    </nav>
+  
+    <!-- 标题与简介 -->
+    <div class="flex flex-col  md:flex-row items-center md:items-start justify-between gap-6 max-w-7xl mx-auto mb-10">
+      <div class="flex-1  items-center justify-center w-[50%]" style="display: flex;
+          justify-content: center;
+          flex-direction: column;">
+        <div class="flex items-center gap-4 mb-4 mt-8">
+          <img src="assets/dwimg.png" alt="插件图标" class="w-20 h-20" />
+        </div>
+        <div class="w-[100%] text-center">
+            <h1 class="text-2xl font-bold">SU/3Dmax AI绘图插件</h1>
+            <p class="text-sm text-gray-500 mt-2">支持版本：SU2019-2024，3Dmax2019-2025</p>
+        </div>
+        <a href="#" class="inline-flex mt-6 items-center px-5 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition">
+          <img src="assets/dwicon.png" alt="插件图标" class="w-10 h-10 object-cover " />
+          立即下载
+        </a>
+      </div>
+      <!-- <div class="flex-1">
+        <img src="assets/dwmac.png" alt="预览图" class="w-full max-w-md mx-auto" />
+      </div> -->
+      <div class="flex-1 relative w-full">
+        <!-- 显示的图片 -->
+        <img id="banner-img" src="" alt="" class="w-full h-full object-cover transition-opacity duration-300">
+
+        <!-- 左右切换按钮 -->
+        <button onclick="prevImage()" class="absolute left-2 top-1/2 transform -translate-y-1/2 rounded-full hover:bg-gray-700">
+          <img src="assets/left.png" alt="插件图标" class="w-10 h-10 object-cover " />
+        </button>
+        <button onclick="nextImage()" class="absolute right-2 top-1/2 transform -translate-y-1/2  rounded-full hover:bg-gray-700">
+          <img src="assets/right.png" alt="插件图标" class="w-10 h-10 object-cover " />
+        </button>
+      </div>
+      
+      <!-- JavaScript -->
+      <script>
+       const banners = [
+        {
+          img: "assets/snt.png",
+          title: '1',
+        },
+        {
+          img:   "assets/dwmac.png",
+          title: '插件名称 2',
+        },
+        {
+          img:  "assets/snsj.png",
+          title: '插件名称 3',
+        }
+      ];
+      
+      
+      let current = 0
+      
+      function updateBanner() {
+        const banner = banners[current]
+        document.getElementById('banner-img').src = banner.img
+        document.getElementById('banner-title').textContent = banner.title
+      }
+
+      function prevImage() {
+        current = (current + 1) % banners.length
+        updateBanner()
+      }
+
+      function nextBanner() {
+        current = (current - 1 + banners.length) % banners.length
+        updateBanner()
+      }
+
+      // 初始化
+      window.addEventListener('DOMContentLoaded', updateBanner)
+      </script>
+      
+    </div>
+  
+    <!-- 软件介绍 -->
+    <div class="bg-black text-center text-white px-6 py-3 rounded-t-[16px] text-lg font-semibold max-w-7xl mx-auto ">
+      软件介绍
+    </div>
+  
+    <!-- 内容段落 + 图片列表 -->
+    <div class="max-w-7xl mx-auto space-y-10 p-6 bg-white">
+      <!-- 段落块 -->
+      <div class="text-gray-700 text-base leading-relaxed">
+        <p class="font-bold">
+          SketchUp Pro 2020正式版是一款十分专业高效实用的三维建筑设计方案的创作工具，支持高效建模、简化设计流程，帮助用户快速展示、创建各类3D模型，成为行业建模利器。
+        </p>
+      </div>
+  
+      <!-- 图片展示 -->
+      <div class="space-y-6">
+        <img src="assets/snt.png" alt="展示图1" class="rounded-md w-full object-cover" />
+        <p class="text-sm text-gray-700 font-bold">
+          SketchUp Pro 2020正式版是一款十分专业高效实用的三维建筑设计方案的创作工具，提供便捷的建模方式和直观界面。
+        </p>
+        <img src="assets/snt.png" alt="展示图2" class="rounded-md w-full object-cover" />
+        <p class="text-sm text-gray-700 font-bold">
+          新版本更具备增强功能，更加注重流程优化，提升用户体验。
+        </p>
+        <img src="assets/snt.png" alt="展示图3" class="rounded-md w-full object-cover" />
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
