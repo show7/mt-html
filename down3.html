@@ -33,7 +33,7 @@
     <!-- 面包屑导航 -->
     <nav class="text-sm text-gray-500 mb-6 sm:pl-0 md:pl-[120px] ">
       <a href="index.html" class="hover:underline "> <img src="assets/Link.png" style="display: inline-block;" alt="插件图标" class="w-[20px] h-[20px]" /> &gt;
-      <a href="download.html" class="hover:underline text-black  font-bold">下载中心</a> &gt;
+      <a href="down1.html" class="hover:underline text-black  font-bold">下载中心</a> &gt;
       <a href="#" class="hover:underline text-black  font-bold">SketchUp 插件</a> &gt;
       <a class="font-medium">SU/3Dmax AI绘图插件</a>
     </nav>
@@ -60,13 +60,19 @@
       </div> -->
       <div class="flex-1 relative w-full">
         <!-- 显示的图片 -->
-        <img id="banner-img" src="" alt="" class="w-full h-full object-cover transition-opacity duration-300">
-
+        <!-- <img id="banner-img" src="" alt="" class="w-[518px] h-[305px] max-w-full md:w-full h-full overflow-hidden object-cover transition-opacity duration-300"> -->
+        <div class="w-full md:w-[518px] md:h-[305px] h-[220px] overflow-hidden" style="margin: 0 auto;">
+          <img id="banner-img"
+               src=""
+               alt=""
+               class="w-full h-full object-cover transition-opacity duration-300" />
+        </div>
+        
         <!-- 左右切换按钮 -->
         <button onclick="prevImage()" class="absolute left-2 top-1/2 transform -translate-y-1/2 rounded-full hover:bg-gray-700">
           <img src="assets/left.png" alt="插件图标" class="w-10 h-10 object-cover " />
         </button>
-        <button onclick="nextImage()" class="absolute right-2 top-1/2 transform -translate-y-1/2  rounded-full hover:bg-gray-700">
+        <button onclick="nextBanner()" class="absolute right-2 top-1/2 transform -translate-y-1/2  rounded-full hover:bg-gray-700">
           <img src="assets/right.png" alt="插件图标" class="w-10 h-10 object-cover " />
         </button>
       </div>

@@ -22,39 +22,112 @@
       <button class="px-10 py-1 text-white bg-[#AF0000] rounded-full hover:bg-red-700">下载</button>
     </div>
   </content>
-
   <nav class="mx-auto container bg-white border-t border-b border-gray-200 md:px-16">
-    <div class="flex px-4 mx-auto text-[1.25rem] text-center container gap-10">
-      <a href="#" class="py-3 px-2 font-bold text-[#AB0101] border-b-4 border-[#AB0101]">快捷工具<div
-          class="text-sm text-[#AB0101]">Quick Tools</div></a>
-      <a href="#" class="py-3 px-2">室内设计<div class="text-sm text-gray-400">Interior design</div></a>
-      <a href="#" class=" py-3 px-2">全屋定制<div class="text-sm text-gray-400">Cabinet</div></a>
-    </div>
+    <div class="flex px-4 mx-auto text-[1.25rem] text-center container gap-10" id="tabs"></div>
   </nav>
-
+  
   <main class="px-4 py-8 mx-auto container">
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-
-      <!-- 卡片 1 -->
-      <div class="p-10 bg-white shadow rounded-[28px] text-[#1D1D1F]">
-        <h2 class="mb-2 text-[2.5rem] text-[#1D1D1F] font-bold text-center">自适应缩放</h2>
-        <p class="mb-4 text-base text-center">更加高效的缩放工具，实现对空间的快速缩放</p>
-        <img src="assets/excame-demo1.png" alt="自适应缩放" class="mx-auto">
-      </div>
-
-      <!-- 卡片 2 -->
-      <div class="p-10 bg-white shadow rounded-[28px]">
-        <h2 class="mb-2 text-[2.5rem]  font-bold text-center">快速墙体</h2>
-        <p class="mb-4 text-base text-center">更加高效的搭建工具，实现对空间的快速搭放</p>
-        <img src="assets/excame-demo2.png" alt="自适应缩放" class="mx-auto">
-      </div>
-
-
-      <!-- 卡片 3-6 同上结构，替换图与内容即可 -->
-      <!-- ...重复卡片内容，最多6个 -->
-
-    </div>
+    <div id="tab-content" class="grid grid-cols-1 gap-6 sm:grid-cols-2"></div>
   </main>
+  
+  <script>
+    const tabData = [
+      {
+        key: 'quick',
+        title: '快捷工具',
+        subtitle: 'Quick Tools',
+        items: [
+          {
+            title: '自适应缩放',
+            desc: '更加高效的缩放工具，实现对空间的快速缩放',
+            img: 'assets/excame-demo1.png'
+          },
+          {
+            title: '快速墙体',
+            desc: '更加高效的搭建工具，实现对空间的快速搭放',
+            img: 'assets/excame-demo2.png'
+          }
+        ]
+      },
+      {
+        key: 'interior',
+        title: '室内设计',
+        subtitle: 'Interior design',
+        items: [
+          {
+            title: '沙发布局',
+            desc: '精心设计的客厅沙发布局，提升空间感',
+            img: 'assets/interior1.png'
+          },
+          {
+            title: '灯光搭配',
+            desc: '温馨灯光设计，营造舒适居住氛围',
+            img: 'assets/interior2.png'
+          }
+        ]
+      },
+      {
+        key: 'custom',
+        title: '全屋定制',
+        subtitle: 'Cabinet',
+        items: [
+          {
+            title: '定制衣柜',
+            desc: '根据户型尺寸定制，合理利用每一寸空间',
+            img: 'assets/custom1.png'
+          },
+          {
+            title: '厨房一体化',
+            desc: '打造极简高效的厨房操作台',
+            img: 'assets/custom2.png'
+          }
+        ]
+      }
+    ];
+  
+    const tabsContainer = document.getElementById('tabs');
+    const contentContainer = document.getElementById('tab-content');
+  
+    let activeTab = tabData[0].key;
+  
+    function renderTabs() {
+      tabsContainer.innerHTML = '';
+      tabData.forEach(tab => {
+        const isActive = tab.key === activeTab;
+        tabsContainer.innerHTML += `
+          <a href="#" data-tab="${tab.key}"
+             class="tab-link py-3 px-2 ${isActive ? 'font-bold text-[#AB0101] border-b-4 border-[#AB0101]' : ''}">
+            ${tab.title}
+            <div class="text-sm ${isActive ? 'text-[#AB0101]' : 'text-gray-400'}">${tab.subtitle}</div>
+          </a>`;
+      });
+  
+      document.querySelectorAll('.tab-link').forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          activeTab = link.getAttribute('data-tab');
+          renderTabs();
+          renderContent();
+        });
+      });
+    }
+  
+    function renderContent() {
+      const current = tabData.find(t => t.key === activeTab);
+      contentContainer.innerHTML = current.items.map(item => `
+        <div class="p-10 bg-white shadow rounded-[28px]">
+          <h2 class="mb-2 text-[2.5rem] font-bold text-center">${item.title}</h2>
+          <p class="mb-4 text-base text-center">${item.desc}</p>
+          <img src="${item.img}" alt="${item.title}" class="mx-auto">
+        </div>
+      `).join('');
+    }
+  
+    renderTabs();
+    renderContent();
+  </script>
+  
+
 
 </body>
 

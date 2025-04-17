@@ -22,7 +22,8 @@
         <span class="text-lg font-bold absolute left-24 top-14">因为专注所以专业</span>
       </div>
       <div class="animate-fadeInUp">
-        <img  id="banner-img"  src="" alt="" class="w-full">
+        
+        <img  id="banner-img"  src="" alt="" class="w-full  opacity-0 transition-opacity duration-700">
         <div class=" text-lg">
           <div class="text-3xl text-black font-semibold">下载试用</div>
           <div class="mb-6 mt-2  text-black">su21-su2025</div>
@@ -35,9 +36,10 @@
         </div>
       </div>
       <div class="flex items-center justify-end mt-14 gap-4">
-        <img class="h-8" onclick="prevBanner()"  src="assets/left-icon.png" alt="箭头">
-        <img class="h-8" onclick="nextBanner()"  src="assets/right-icon.png" alt="箭头">
+        <img class="h-8 rotate-180 transition-transform transform hover:scale-110 cursor-pointer" onclick="prevBanner()" src="assets/right-icon.png" alt="箭头">
+        <img class="h-8 transition-transform transform hover:scale-110 cursor-pointer" onclick="nextBanner()" src="assets/right-icon.png" alt="箭头">
       </div>
+      
     </div>
   </section>
   <script>
@@ -47,11 +49,11 @@
         title: '1',
       },
       {
-        img: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&h=400&q=80',
+        img: 'assets/snt.png',
         title: '插件名称 2',
       },
       {
-        img: 'https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&h=400&q=80',
+        img: 'assets/dwmac.png',
         title: '插件名称 3',
       },
     ]
@@ -60,8 +62,20 @@
   
     function updateBanner() {
       const banner = banners[current]
-      document.getElementById('banner-img').src = banner.img
-      document.getElementById('banner-title').textContent = banner.title
+      const bannerImg = document.getElementById('banner-img');
+       // 淡出
+  bannerImg.classList.add('opacity-0');
+
+// 等待淡出完成后切图并淡入
+setTimeout(() => {
+  bannerImg.src = banner.img;
+
+  // 图片加载完再淡入（避免闪现）
+  bannerImg.onload = () => {
+    bannerImg.classList.remove('opacity-0');
+  };
+}, 500); // 先等 300ms 淡出，再换图
+      // document.getElementById('banner-title').textContent = banner.title
     }
   
     function nextBanner() {
@@ -73,9 +87,17 @@
       current = (current - 1 + banners.length) % banners.length
       updateBanner()
     }
-  
+  // 初始化
+window.addEventListener('DOMContentLoaded', () => {
+  updateBanner();
+
+  // 每秒切换一次
+  setInterval(() => {
+    nextBanner();
+  }, 2000); // 1000 毫秒 = 1 秒
+});
+
     // 初始化
-    window.addEventListener('DOMContentLoaded', updateBanner)
   </script>
   <!-- 云海室内设计介绍 -->
   <section class="py-16">

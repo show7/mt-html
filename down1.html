@@ -107,7 +107,7 @@
         </script>
         
         <!-- 软件图标区域 -->
-        <div class="grid grid-cols-4 md:grid-cols-8 gap-4 mb-16 mt-6">
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-4  mt-6">
           <div class="software-icon flex flex-col items-center">
             <div class="bg-red-50 p-3 rounded-lg mb-2">
               <svg class="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="currentColor">
@@ -179,110 +179,101 @@
         </div>
 
         <!-- 分类部分 -->
-        <section class="mb-16 ">
-          <h1 class="text-[3.36rem] font-bold mb-8 text-[#1D1D1F]">分类</h1>
-          <div class="flex flex-wrap gap-2 mb-8">
-            <button class="bg-black text-white px-6 py-2 rounded-full text-base">所有</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">3D建模</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">AI绘图</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">渲染器</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">CAD制图</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">图像处理</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">视频编辑</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">系统办公</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">图片管理</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">工业设计</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">网页制作</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">MAC版软件</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">建筑机软件</button>
-            <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base">工具软件</button>
-          </div>
-        </section>
-      </section>
-    </div>
-    <!-- 名称1 -->
-    <section class="container mx-auto px-4 py-8 mb-12">
-      <h2 class="text-xl font-bold mb-4">名称1</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class="p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">Corona渲染器</a>
-        </div>
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class=" p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">ACDSee</a>
-        </div>
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class=" p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">VRay for 3Dsmax</a>
-        </div>
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class=" p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">3DsMAX</a>
-        </div>
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class=" p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">Sketch up草图大师</a>
-        </div>
-      </div>
-    </section>
+       <section class="mt-6">
+  <h1 class="text-[3.36rem] font-bold mb-8 text-[#1D1D1F]">分类</h1>
+  <div id="tabs" class="flex flex-wrap gap-2 mb-8"></div>
+</section>
 
-    <!-- 名称2 -->
-    <section class="container mx-auto px-4 py-8 mb-12">
-      <h2 class="text-xl font-bold mb-4">名称2</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class="p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">Corona渲染器</a>
-        </div>
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class=" p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">ACDSee</a>
-        </div>
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class=" p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">VRay for 3Dsmax</a>
-        </div>
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class=" p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">3DsMAX</a>
-        </div>
-        <div
-          class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
-          <div class=" p-3 rounded-lg">
-            <image class="w-9 h-9" src="assets/ps-icon.png" mode="scaleToFill" />
-          </div>
-           <a href="down2.html" class="text-sm text-sm text-center hover:text-red-600">Sketch up草图大师</a>
-        </div>
-      </div>
-    </section>
+<section id="softwareSections" class="container mx-auto px-4 py-4 mb-12"></section>
+
+    <script>
+      const categories = [
+        {
+          name: "3D建模",
+          key: "3d",
+          softwares: [
+            { name: "3DsMAX", icon: "assets/ps-icon.png" },
+            { name: "Sketch up草图大师", icon: "assets/ps-icon.png" },
+          ],
+        },
+        {
+          name: "渲染器",
+          key: "render",
+          softwares: [
+            { name: "VRay for 3Dsmax", icon: "assets/ps-icon.png" },
+            { name: "Corona渲染器", icon: "assets/ps-icon.png" },
+          ],
+        },
+        {
+          name: "图像处理",
+          key: "image",
+          softwares: [
+            { name: "ACDSee", icon: "assets/ps-icon.png" },
+          ],
+        },
+      ];
+    
+      const tabsContainer = document.getElementById("tabs");
+      const sectionsContainer = document.getElementById("softwareSections");
+    
+      function render() {
+        // 渲染 Tabs
+        tabsContainer.innerHTML = `
+          <button class="category-tab bg-black text-white px-6 py-2 rounded-full text-base" data-category="all">所有</button>
+          ${categories.map(cat => `
+            <button class="category-tab bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-base" data-category="${cat.key}">${cat.name}</button>
+          `).join('')}
+        `;
+    
+        // 渲染内容
+        sectionsContainer.innerHTML = categories.map(cat => `
+          <section class="software-group" data-category="${cat.key}">
+            <h2 class="text-xl font-bold mb-4 mt-6">${cat.name}</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              ${cat.softwares.map(app => `
+                <div class="software-icon bg-white border border-gray-200 rounded-lg p-4 flex gap-3 items-center hover:shadow-md transition-shadow">
+                  <div class="p-3 rounded-lg">
+                    <img class="w-9 h-9" src="${app.icon}" alt="${app.name}" />
+                  </div>
+                  <a href="down2.html" class="text-sm text-center hover:text-red-600">${app.name}</a>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+        `).join('');
+      }
+    
+      function addEvents() {
+        const tabs = document.querySelectorAll(".category-tab");
+        const groups = document.querySelectorAll(".software-group");
+    
+        tabs.forEach(tab => {
+          tab.addEventListener("click", () => {
+            const category = tab.dataset.category;
+    
+            // 切换按钮状态
+            tabs.forEach(t => t.classList.remove("bg-black", "text-white"));
+            tab.classList.add("bg-black", "text-white");
+    
+            // 显示/隐藏分组
+            groups.forEach(group => {
+              if (category === "all" || group.dataset.category === category) {
+                group.classList.remove("hidden");
+              } else {
+                group.classList.add("hidden");
+              }
+            });
+          });
+        });
+      }
+    
+      // 初始化
+      document.addEventListener("DOMContentLoaded", () => {
+        render();
+        addEvents();
+      });
+    </script>
+    
 
 
   </main>
