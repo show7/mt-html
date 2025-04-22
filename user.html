@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>个人中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fadeInUp: 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Include components.js for header and footer -->
+  <script src="js/components.js"></script>
+</head>
+
+<body class="bg-gray-50 font-sans bg-[#F5F5F7]">
+
+  <div class="container mx-auto flex flex-col md:flex-row min-h-[calc(100vh-250px)] md:gap-8 px-4 py-6">
+    <!-- 左侧/上方 Tabs -->
+    <div class="md:w-64 w-full bg-white rounded md:rounded-none mb-4 md:mb-0">
+      <ul id="sidebarTabs" class="flex md:flex-col p-6 ">
+        <li onclick="switchTab('profile', this)" class="tab-item active-tab flex md:flex-row items-center rounded-sm"
+          data-img-active="assets/user-hover.png" data-img="assets/user.png">
+          <img class="w-6 h-6 object-cover mr-6" src="assets/user-hover.png" alt="" />
+          个人资料
+        </li>
+        <li onclick="switchTab('purchase', this)" class="tab-item flex items-center md:flex-row rounded-sm mt-6"
+          data-img-active="assets/shop-hover.png" data-img="assets/shop.png">
+          <img class="w-6 h-6 object-cover mr-6" src="assets/shop.png" alt="" />
+          购买记录
+        </li>
+        <li onclick="switchTab('download', this)" class="tab-item flex items-center md:flex-row rounded-sm mt-6"
+          data-img-active="assets/dw-hover.png" data-img="assets/dw.png">
+          <img class="w-6 h-6 object-cover mr-6" src="assets/dw.png" alt="" />
+          下载记录
+        </li>
+      </ul>
+    </div>
+
+    <!-- 右侧内容 -->
+    <div class="flex-1 p-4 md:p-10 bg-white rounded shadow-sm">
+      <!-- 个人资料 Tab -->
+      <div id="tab-profile" class="tab-content block">
+        <h2 class="text-xl font-semibold mb-6">个人资料</h2>
+        <div class="space-y-5 max-w-xl">
+          <div class="flex items-center gap-4">
+            <label class="text-gray-600 w-32 shrink-0">微信 OpenID</label>
+            <div class=" text-[#666666]">123werfsd</div>
+          </div>
+          <div class="flex items-center gap-4">
+            <label class="text-gray-600 w-32 shrink-0">手机号</label>
+            <input type="text" value="17688886666"
+              class="flex-1 px-4 w-full sm:w-10 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red-300" />
+          </div>
+          <div class="flex items-center gap-4">
+            <label class="text-gray-600 w-32 shrink-0">邮箱</label>
+            <input type="email" value="123werfsd@gmail.com"
+              class="flex-1 px-4 w-full sm:w-10 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red-300" />
+          </div>
+          <button onclick="alert('保存成功')"
+            class="bg-red-700 text-white px-6 py-2 rounded hover:bg-red-800 transition">
+            保存
+          </button>
+          <script>
+            function handleSubmit() {
+              const openid = document.getElementById('openid').textContent.trim();
+              const phone = document.getElementById('phone').value.trim();
+              const email = document.getElementById('email').value.trim();
+          
+              // 简单校验一下
+              if (!/^1\d{10}$/.test(phone)) {
+                alert('手机号格式不正确');
+                return;
+              }
+              if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('邮箱格式不正确');
+                return;
+              }
+          
+              // 模拟提交
+              const data = {
+                openid,
+                phone,
+                email
+              };
+          
+              console.log('提交的数据是：', data);
+              alert('保存成功');
+            }
+          </script>
+        </div>
+      </div>
+
+      <!-- 购买记录 Tab -->
+      <div id="tab-purchase" class="tab-content hidden block">
+        <div  class="block">
+          <h2 class="text-xl font-semibold mb-6 ">购买记录</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white table-auto text-[#666666] text-sm">
+              <thead class="bg-[#F5F5F7]">
+                <tr>
+                  <th class="px-4 py-2 border-b text-left" style="height: 44px;">购买日期</th>
+                  <th class="px-4 py-2 border-b text-left" style="height: 44px;">类型</th>
+                  <th class="px-4 py-2 border-b text-left" style="height: 44px;">金额</th>
+                  <th class="px-4 py-2 border-b text-left" style="height: 44px;">购买状态</th>
+                  <th class="px-4 py-2 border-b text-left" style="height: 44px;">购买方式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="px-4 py-2 border-b text-left">2025-04-18 16:33:28</td>
+                  <td class="px-4 py-2 border-b text-left">类型名称</td>
+                  <td class="px-4 py-2 border-b text-left">￥498</td>
+                  <td class="px-4 py-2 border-b text-left">已购买</td>
+                  <td class="px-4 py-2 border-b text-left">支付宝</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+        
+      </div>
+
+      <!-- 下载记录 Tab -->
+      <div id="tab-download" class="tab-content hidden ">
+        <div  class="block">
+          <h2 class="text-xl font-semibold mb-6 ">下载记录</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white table-auto text-[#666666] text-sm">
+              <thead class="bg-[#F5F5F7]">
+                <tr>
+                  <th class="px-4 py-2 border-b text-left" style="height: 44px;">下载日期</th>
+                  <th class="px-4 py-2 border-b text-left" style="height: 44px;">下载内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="px-4 py-2 border-b text-left">2025-04-18 16:33:28</td>
+                  <td class="px-4 py-2 border-b text-left">2025-04-18 16:33:28</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabId, el) {
+      const tabs = document.querySelectorAll('.tab-item');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.classList.remove('active-tab');
+        const img = tab.querySelector('img');
+        if (img && tab.dataset.img) {
+          img.src = tab.dataset.img; // 切换为非激活图
+        }
+      });
+
+      contents.forEach(content => content.classList.add('hidden'));
+
+      // 激活当前 tab 和图标
+      el.classList.add('active-tab');
+      const img = el.querySelector('img');
+      if (img && el.dataset.imgActive) {
+        img.src = el.dataset.imgActive;
+      }
+
+      document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+    }
+  </script>
+
+  <style>
+    .tab-item {
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      flex: 1;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .tab-item {
+        text-align: left;
+        flex: none;
+      }
+    }
+
+    .tab-item:hover {
+      background-color: #f3f4f6;
+      color: black;
+    }
+
+    .active-tab {
+      background-color: #b91c1c;
+      color: white;
+      font-weight: 600;
+    }
+  </style>
+</body>
+
+</html>
