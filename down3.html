@@ -6,32 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>下载详情</title>
   <script src="js/tailwindcss.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            fadeInUp: 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-          },
-        }
-      }
-    }
-  </script>
-  <!-- Include components.js for header and footer -->
   <script src="js/components.js"></script>
+  <script src="js/tailwindcss.config.js"></script>
 </head>
 
 <body class="text-gray-900 bg-gray-50 " style="background-color: #F5F5F7;">
 
-  <section class="bg-gray-50 text-gray-800 px-4 md:px-8 py-10">
+  <section class="container bg-gray-50 text-gray-800  md:py-10">
     <!-- 面包屑导航 -->
-    <nav class="text-sm text-gray-500 mb-6 sm:pl-0 md:pl-[120px] ">
+    <nav class="text-sm text-gray-500 mb-6  ">
       <a href="index.html" class="hover:underline "> <img src="assets/Link.png" style="display: inline-block;"
           alt="插件图标" class="w-[20px] h-[20px]" /> &gt;
         <a href="down1.html" class="hover:underline text-black  font-bold">下载中心</a> &gt;
@@ -40,7 +23,7 @@
     </nav>
 
     <!-- 标题与简介 -->
-    <div class="flex flex-col  md:flex-row items-center md:items-start justify-between gap-6 max-w-7xl mx-auto mb-10">
+    <div class="flex flex-col  md:flex-row items-center md:items-start justify-between gap-6 container mx-auto mb-10">
       <div class="flex-1  items-center justify-center w-[50%]" style="display: flex;
           justify-content: center;
           flex-direction: column;">
@@ -121,12 +104,12 @@
     </div>
 
     <!-- 软件介绍 -->
-    <div class="bg-black text-center text-white px-6 py-3 rounded-t-[16px] text-lg font-semibold max-w-7xl mx-auto ">
+    <div class="bg-black text-center text-white px-6 py-3 rounded-t-[16px] text-lg font-semibold container mx-auto ">
       软件介绍
     </div>
 
     <!-- 内容段落 + 图片列表 -->
-    <div class="max-w-7xl mx-auto space-y-10 p-6 bg-white">
+    <div class="container mx-auto space-y-10 p-6 bg-white">
       <!-- 段落块 -->
       <div class="text-gray-700 text-base leading-relaxed">
         <p class="font-bold">
