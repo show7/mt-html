@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MT-Plugins 官网</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwindcss.js"></script>
 
   <!-- Include components.js for header and footer -->
   <script src="js/components.js"></script>
@@ -13,26 +13,28 @@
 </head>
 
 <body class="text-gray-900 bg-gray-50">
-   <!-- 面包屑导航 -->
-   <nav class="text-sm text-gray-500 mb-6 mt-8 sm:pl-0 md:pl-[120px] ">
-    <a href="index.html" class="hover:underline"> <img src="assets/Link.png" style="display: inline-block;" alt="插件图标" class="w-[20px] h-[20px]" /> &gt;
-    <a href="down1.html" class="hover:underline text-black  font-medium">下载中心</a> &gt;
-    <a href="#" class="hover:underline">Sketch up草图大师</a> 
+  <!-- 面包屑导航 -->
+  <nav class="text-sm text-gray-500 mb-6 mt-8  container ">
+    <a href="index.html" class="hover:underline"> <img src="assets/Link.png" style="display: inline-block;" alt="插件图标"
+        class="w-[20px] h-[20px]" /> &gt;
+      <a href="down1.html" class="hover:underline text-black  font-medium">下载中心</a> &gt;
+      <a href="#" class="hover:underline">Sketch up草图大师</a>
   </nav>
-  <main class="px-4 py-6 mx-auto max-w-7xl">
+  <main class=" py-6 mx-auto container ">
     <div class="grid grid-cols-1 gap-16 md:grid-cols-2">
       <!-- 插件卡片，重复多次 -->
       <div class="flex items-center p-4 space-x-4 bg-white shadow rounded-xl group relative">
         <!-- 悬浮显示的下载按钮 -->
-        <div class="hidden group-hover:flex absolute -right-6 -translate-x-full group-hover:translate-x-0 transition-all duration-300">
+        <div
+          class="hidden group-hover:flex absolute -right-6 -translate-x-full group-hover:translate-x-0 transition-all duration-300">
           <a href="#" class="text-white p-2 rounded-full">
             <img src="assets/rdw.png" alt="" class="w-12 h-12">
           </a>
         </div>
-      
+
         <!-- 插件图标 -->
         <img src="assets/dwimg.png" alt="插件图标" class="w-20 h-20">
-      
+
         <!-- 插件信息 -->
         <div class="flex-1">
           <h3 class="font-semibold">SU/3Dmax AI绘图插件</h3>
@@ -42,15 +44,16 @@
       </div>
       <div class="flex items-center p-4 space-x-4 bg-white shadow rounded-xl group relative">
         <!-- 悬浮显示的下载按钮 -->
-        <div class="hidden group-hover:flex absolute -right-6 -translate-x-full group-hover:translate-x-0 transition-all duration-300">
+        <div
+          class="hidden group-hover:flex absolute -right-6 -translate-x-full group-hover:translate-x-0 transition-all duration-300">
           <a href="#" class="text-white p-2 rounded-full">
             <img src="assets/rdw.png" alt="" class="w-12 h-12">
           </a>
         </div>
-      
+
         <!-- 插件图标 -->
         <img src="assets/dwimg.png" alt="插件图标" class="w-20 h-20">
-      
+
         <!-- 插件信息 -->
         <div class="flex-1">
           <h3 class="font-semibold">SU/3Dmax AI绘图插件</h3>
@@ -60,7 +63,7 @@
       </div>
       <!-- 复制这个卡片结构多次，并修改图标和文字内容 -->
 
-     
+
       <!-- 可继续添加 -->
     </div>
   </main>

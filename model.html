@@ -1,221 +1,201 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>模型库</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwindcss.js"></script>
 </head>
-<body class="bg-gray-100">
-<div id="app" class="min-h-screen flex flex-col">
 
-  <!-- 一级菜单 -->
-  <header class="bg-white shadow">
-    <nav class="flex space-x-4  border-b items-center">
-      <h2 class="text-xl font-semibold w-32 p-4 text-center">模型库</h2>
-      <button
-        v-for="(menu, index) in menus"
-        :key="index"
-        @click="selectLevel1(index)"
-        class="px-4 py-2 relative"
-        :class="selectedLevel1 === index
+<body class="bg-gray-100">
+  <div id="app" class="min-h-screen flex flex-col">
+
+    <!-- 一级菜单 -->
+    <header class="bg-white shadow">
+      <nav class="flex space-x-4  border-b items-center">
+        <h2 class="text-xl font-semibold w-32 p-4 text-center">模型库</h2>
+        <button v-for="(menu, index) in menus" :key="index" @click="selectLevel1(index)" class="px-4 py-2 relative"
+          :class="selectedLevel1 === index
           ? 'text-[#AB0101] font-bold' 
           : 'text-gray-700 hover:text-red-500'">
-        {{ menu.name }}
-        <span 
-          v-if="selectedLevel1 === index"
-          class="absolute left-0 bottom-[-10px] w-full h-[2px] bg-[#AB0101]"></span>
-      </button>
-    </nav>
-  </header>
-  
-
-  <div class="flex flex-1">
-    <!-- 二级菜单 -->
-    <aside class="w-32 shrink-0 bg-white border-r p-2 space-y-2">
-      <button
-      @click="selectLevel2(-1)"
-      class="w-full text-left px-2 py-2 mt-4 rounded-sm flex items-center space-x-2"
-      :class="{'bg-[#AB0101] text-white': selectedLevel2 === -1, 'text-gray-700 hover:bg-gray-200': selectedLevel2 !== -1}">
-      <img src="assets/modalImg/Frame@2x(5).png" class="w-4 h-4 mr-4" />
-      <span>全部</span> 
-      </button>
-      <button
-        v-for="(item, index) in currentLevel2"
-        :key="index"
-        @click="selectLevel2(index)"
-        class="w-full text-left px-2 py-2 mt-4 rounded-sm flex items-center space-x-2"
-        :class="{'bg-[#AB0101] text-white': selectedLevel2 === index, 'text-gray-700 hover:bg-gray-200': selectedLevel2 !== index}">
-        <img src="assets/modalImg/Frame@2x(6).png" class="w-4 h-4 mr-4" />
-        <span>{{ item.name }}</span>
-      </button>
-    </aside>
-
-
-    <!-- 三级菜单和卡片 -->
-    <div class="flex-1 flex flex-col p-4 space-y-4">
-     
-      <div class="grid grid-cols-3 gap-2 pb-2 border-b md:flex md:flex-nowrap md:overflow-x-auto md:space-x-4 md:grid-cols-none">
-        <button
-          @click="selectLevel3(-1)"
-          class="px-3 py-1 rounded"
-          :class="{'bg-red-100 text-red-600': selectedLevel3 === -1}"
-        >
-          全部
+          {{ menu.name }}
+          <span v-if="selectedLevel1 === index"
+            class="absolute left-0 bottom-[-10px] w-full h-[2px] bg-[#AB0101]"></span>
         </button>
-        <button
-          v-for="(item, index) in currentLevel3"
-          :key="index"
-          @click="selectLevel3(index)"
-          class="px-3 py-1 rounded"
-          :class="{'bg-red-100 text-red-600': selectedLevel3 === index}"
-        >
-          {{ item }}
-        </button>
-      </div>
-      
-      
+      </nav>
+    </header>
 
-      <!-- 模型卡片区 -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div v-for="(card, index) in filteredCards"
-             :key="index"
-             class="bg-white  pb-6 rounded shadow hover:shadow-lg transition-shadow duration-200 relative group">
-        <div class="border-dashed  border-gray-300">
-          <img src="assets/modalImg/image@2x(1).png" class="h-48 object-contain mx-auto" />
-           <!-- 悬浮时显示的黑色背景容器 -->
-          <div class="absolute inset-0 bg-[rgba(11,21,38,0.86)] h-48 opacity-0 hover:opacity-100  transition-opacity duration-300 rounded-tl-lg rounded-tr-lg">
-            <div
-            class="grid w-full h-full text-white"
-            :class="gridColsClass(card.modules.length)"
-            >
-            <div
-              v-for="(item, index) in card.modules"
-              :key="item"
-              style="border-color: rgba(255,255,255,0.5)"
-              :class="[card.modules.length == 5 && getFiveGridPosition(index), getBorderClass(card.modules.length,index)]"
-              class="flex flex-col items-center justify-center hover:scale-105 transition-scale duration-300 border cursor-pointer border-dashed  rounded"
-            >
-              <span >{{ item }}</span>
-              <img :src="`assets/modalImg/${item}.png`" class="w-6 h-6 mt-2" />
-            </div>
-          </div> 
-     
-       </div>
+
+    <div class="flex flex-1">
+      <!-- 二级菜单 -->
+      <aside class="w-32 shrink-0 bg-white border-r p-2 space-y-2">
+        <button @click="selectLevel2(-1)" class="w-full text-left px-2 py-2 mt-4 rounded-sm flex items-center space-x-2"
+          :class="{'bg-[#AB0101] text-white': selectedLevel2 === -1, 'text-gray-700 hover:bg-gray-200': selectedLevel2 !== -1}">
+          <img src="assets/modalImg/Frame@2x(5).png" class="w-4 h-4 mr-4" />
+          <span>全部</span>
+        </button>
+        <button v-for="(item, index) in currentLevel2" :key="index" @click="selectLevel2(index)"
+          class="w-full text-left px-2 py-2 mt-4 rounded-sm flex items-center space-x-2"
+          :class="{'bg-[#AB0101] text-white': selectedLevel2 === index, 'text-gray-700 hover:bg-gray-200': selectedLevel2 !== index}">
+          <img src="assets/modalImg/Frame@2x(6).png" class="w-4 h-4 mr-4" />
+          <span>{{ item.name }}</span>
+        </button>
+      </aside>
+
+
+      <!-- 三级菜单和卡片 -->
+      <div class="flex-1 flex flex-col p-4 space-y-4">
+
+        <div
+          class="grid grid-cols-3 gap-2 pb-2 border-b md:flex md:flex-nowrap md:overflow-x-auto md:space-x-4 md:grid-cols-none">
+          <button @click="selectLevel3(-1)" class="px-3 py-1 rounded"
+            :class="{'bg-red-100 text-red-600': selectedLevel3 === -1}">
+            全部
+          </button>
+          <button v-for="(item, index) in currentLevel3" :key="index" @click="selectLevel3(index)"
+            class="px-3 py-1 rounded" :class="{'bg-red-100 text-red-600': selectedLevel3 === index}">
+            {{ item }}
+          </button>
         </div>
-          <div class="text-sm text-center font-bold mt-6">{{ card.name }}</div>
-          <div class="text-xs text-gray-500 text-center ">{{ card.size }}kb</div>
-          <!-- 悬浮展示详情 -->
-          <div class="absolute bottom-full  left-1/2 transform -translate-x-1/2 bg-black text-white text-xs p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 whitespace-nowrap ">
-            {{ card.description }}
+
+
+
+        <!-- 模型卡片区 -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div v-for="(card, index) in filteredCards" :key="index"
+            class="bg-white  pb-6 rounded shadow hover:shadow-lg transition-shadow duration-200 relative group">
+            <div class="border-dashed  border-gray-300">
+              <img src="assets/modalImg/image@2x(1).png" class="h-48 object-contain mx-auto" />
+              <!-- 悬浮时显示的黑色背景容器 -->
+              <div
+                class="absolute inset-0 bg-[rgba(11,21,38,0.86)] h-48 opacity-0 hover:opacity-100  transition-opacity duration-300 rounded-tl-lg rounded-tr-lg">
+                <div class="grid w-full h-full text-white" :class="gridColsClass(card.modules.length)">
+                  <div v-for="(item, index) in card.modules" :key="item" style="border-color: rgba(255,255,255,0.5)"
+                    :class="[card.modules.length == 5 && getFiveGridPosition(index), getBorderClass(card.modules.length,index)]"
+                    class="flex flex-col items-center justify-center hover:scale-105 transition-scale duration-300 border cursor-pointer border-dashed  rounded">
+                    <span>{{ item }}</span>
+                    <img :src="`assets/modalImg/${item}.png`" class="w-6 h-6 mt-2" />
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="text-sm text-center font-bold mt-6">{{ card.name }}</div>
+            <div class="text-xs text-gray-500 text-center ">{{ card.size }}kb</div>
+            <!-- 悬浮展示详情 -->
+            <div
+              class="absolute bottom-full  left-1/2 transform -translate-x-1/2 bg-black text-white text-xs p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 whitespace-nowrap ">
+              {{ card.description }}
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 
-</div>
+  <script>
 
-<script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          selectedLevel1: 0,
+          selectedLevel2: -1,
+          selectedLevel3: -1,
+          menus: [
+            {
+              name: '一级菜单A',
+              level2: [
 
-  new Vue({
-    el: '#app',
-    data() {
-      return {
-        selectedLevel1: 0,
-        selectedLevel2: -1,
-        selectedLevel3: -1,
-        menus: [
-          {
-            name: '一级菜单A',
-            level2: [
-              
-              { name: '家具',iconUrl: 'https://via.placeholder.com/100', level3: ['桌子', '椅子', '沙发'] },
-              { name: '灯饰',iconUrl: 'https://via.placeholder.com/100' , level3: ['吊灯', '台灯'] }
-            ]
-          },
-          {
-            name: '一级菜单B',
-            level2: [
-              { name: '电器',iconUrl: 'https://via.placeholder.com/100', level3: ['电视', '空调'] },
-              { name: '结构',iconUrl: 'https://via.placeholder.com/100', level3: ['梁', '柱'] }
-            ]
+                { name: '家具', iconUrl: 'https://via.placeholder.com/100', level3: ['桌子', '椅子', '沙发'] },
+                { name: '灯饰', iconUrl: 'https://via.placeholder.com/100', level3: ['吊灯', '台灯'] }
+              ]
+            },
+            {
+              name: '一级菜单B',
+              level2: [
+                { name: '电器', iconUrl: 'https://via.placeholder.com/100', level3: ['电视', '空调'] },
+                { name: '结构', iconUrl: 'https://via.placeholder.com/100', level3: ['梁', '柱'] }
+              ]
+            }
+          ],
+          modelCards: [
+            { name: '桌子', size: '19823', description: '木质桌子', modules: ['X', 'D', 'M', 'S', 'T'], },
+            { name: '椅子', size: '20456', description: '办公椅', modules: ['X', 'D', 'M', 'S'], },
+            { name: '沙发', size: '15000', description: '皮沙发', modules: ['X', 'D', 'M'], },
+            { name: '吊灯', size: '18923', description: '现代吊灯', modules: ['X', 'D'], },
+            { name: '台灯', size: '16743', description: 'LED台灯', modules: ['X'], },
+          ],
+
+        };
+      },
+      computed: {
+
+        currentLevel2() {
+          return this.menus[this.selectedLevel1].level2;
+        },
+        currentLevel3() {
+          if (this.selectedLevel2 === -1) {
+            return this.currentLevel2.flatMap(l2 => l2.level3);
+          } else {
+            return this.currentLevel2[this.selectedLevel2].level3;
           }
-        ],
-        modelCards: [
-          { name: '桌子', size: '19823', description: '木质桌子', modules: ['X','D','M','S','T'],},
-          { name: '椅子', size: '20456', description: '办公椅',modules: ['X','D','M','S'],},
-          { name: '沙发', size: '15000', description: '皮沙发',modules: ['X','D','M'],},
-          { name: '吊灯', size: '18923', description: '现代吊灯',modules: ['X','D'],},
-          { name: '台灯', size: '16743', description: 'LED台灯',modules: ['X'],},
-        ],
-       
-      };
-    },
-    computed: {
-     
-      currentLevel2() {
-        return this.menus[this.selectedLevel1].level2;
-      },
-      currentLevel3() {
-        if (this.selectedLevel2 === -1) {
-          return this.currentLevel2.flatMap(l2 => l2.level3);
-        } else {
-          return this.currentLevel2[this.selectedLevel2].level3;
+        },
+        filteredCards() {
+          const currentNames = this.selectedLevel3 === -1
+            ? this.currentLevel3
+            : [this.currentLevel3[this.selectedLevel3]];
+          return this.modelCards.filter(card => currentNames.includes(card.name));
         }
       },
-      filteredCards() {
-        const currentNames = this.selectedLevel3 === -1
-          ? this.currentLevel3
-          : [this.currentLevel3[this.selectedLevel3]];
-        return this.modelCards.filter(card => currentNames.includes(card.name));
-      }
-    },
-    methods: {
-      // 显示右边和下边边框（避免双边）
-      getBorderClass(count,index){
-        const cols = count === 4 ? 2 : 3
-        const isLastColumn = (index + 1) % cols === 0
-        const isLastRow = index >= Math.floor((count - 1) / cols) * cols
-        return [
-          !isLastColumn ? 'border-r  border-dashed' : '',
-          !isLastRow ? 'border-b  border-dashed' : '',
-        ].join(' ')
-      },
-       getFiveGridPosition(index){
-        if (index < 2) {
-          return 'col-span-3 row-start-1' // 第一行两个，每个3/6
-        } else {
-          return 'col-span-2 row-start-2' // 第二行三个，每个2/6
-        }
-      },
-      gridColsClass (count)  {
-        const config = {
-          1: 'grid-cols-1',
-          2: 'grid-cols-2',
-          3: 'grid-cols-3',
-          4: 'grid-cols-2 grid-rows-2',
-          5: 'grid-cols-6 grid-rows-2',
-          6: 'grid-cols-3 grid-rows-2',
-        }
-        return `gap-0 ${config[count] || 'grid-cols-3'}`
-      },
+      methods: {
+        // 显示右边和下边边框（避免双边）
+        getBorderClass(count, index) {
+          const cols = count === 4 ? 2 : 3
+          const isLastColumn = (index + 1) % cols === 0
+          const isLastRow = index >= Math.floor((count - 1) / cols) * cols
+          return [
+            !isLastColumn ? 'border-r  border-dashed' : '',
+            !isLastRow ? 'border-b  border-dashed' : '',
+          ].join(' ')
+        },
+        getFiveGridPosition(index) {
+          if (index < 2) {
+            return 'col-span-3 row-start-1' // 第一行两个，每个3/6
+          } else {
+            return 'col-span-2 row-start-2' // 第二行三个，每个2/6
+          }
+        },
+        gridColsClass(count) {
+          const config = {
+            1: 'grid-cols-1',
+            2: 'grid-cols-2',
+            3: 'grid-cols-3',
+            4: 'grid-cols-2 grid-rows-2',
+            5: 'grid-cols-6 grid-rows-2',
+            6: 'grid-cols-3 grid-rows-2',
+          }
+          return `gap-0 ${config[count] || 'grid-cols-3'}`
+        },
 
-      selectLevel1(index) {
-        this.selectedLevel1 = index;
-        this.selectedLevel2 = -1;
-        this.selectedLevel3 = -1;
-      },
-      selectLevel2(index) {
-        this.selectedLevel2 = index;
-        this.selectedLevel3 = -1;
-      },
-      selectLevel3(index) {
-        this.selectedLevel3 = index;
+        selectLevel1(index) {
+          this.selectedLevel1 = index;
+          this.selectedLevel2 = -1;
+          this.selectedLevel3 = -1;
+        },
+        selectLevel2(index) {
+          this.selectedLevel2 = index;
+          this.selectedLevel3 = -1;
+        },
+        selectLevel3(index) {
+          this.selectedLevel3 = index;
+        }
       }
-    }
-  });
-</script>
+    });
+  </script>
 </body>
+
 </html>

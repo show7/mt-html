@@ -5,16 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MT-Plugins 官网</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwindcss.js"></script>
 
   <!-- Include components.js for header and footer -->
   <script src="js/components.js"></script>
   <script src="js/tailwindcss.config.js"></script>
 </head>
 
-<body class="text-gray-900 bg-[#F5F5F7]">
+<body class="container text-gray-900 bg-[#F5F5F7]">
   <content class="pt-24 bg-white shadow">
-    <div class="flex items-center justify-between mx-auto container px-4">
+    <div class="flex items-center justify-between mx-auto  px-4">
       <div class="flex items-center gap-2 relative mb-10 mt-10">
         <img src="assets/logo.png" alt="Logo" class="h-[5.312rem]">
         <span class="text-lg font-bold absolute left-24 top-14">咨询：13382909208</span>
@@ -22,14 +22,14 @@
       <button class="px-10 py-1 text-white bg-[#AF0000] rounded-full hover:bg-red-700">下载</button>
     </div>
   </content>
-  <nav class="mx-auto container bg-white border-t border-b border-gray-200 md:px-16">
-    <div class="flex px-4 mx-auto text-[1.25rem] text-center container gap-10" id="tabs"></div>
+  <nav class="mx-auto bg-white border-t border-b border-gray-200 md:px-16">
+    <div class="flex px-4 mx-auto text-[1.25rem] text-center  gap-10" id="tabs"></div>
   </nav>
-  
-  <main class="px-4 py-8 mx-auto container">
-    <div id="tab-content" class="grid grid-cols-1 gap-6 sm:grid-cols-2"></div>
+
+  <main class="py-8 mx-auto">
+    <div id="tab-content" class="grid grid-cols-1 gap-5 sm:grid-cols-2"></div>
   </main>
-  
+
   <script>
     const tabData = [
       {
@@ -84,12 +84,12 @@
         ]
       }
     ];
-  
+
     const tabsContainer = document.getElementById('tabs');
     const contentContainer = document.getElementById('tab-content');
-  
+
     let activeTab = tabData[0].key;
-  
+
     function renderTabs() {
       tabsContainer.innerHTML = '';
       tabData.forEach(tab => {
@@ -101,7 +101,7 @@
             <div class="text-sm ${isActive ? 'text-[#AB0101]' : 'text-gray-400'}">${tab.subtitle}</div>
           </a>`;
       });
-  
+
       document.querySelectorAll('.tab-link').forEach(link => {
         link.addEventListener('click', e => {
           e.preventDefault();
@@ -111,7 +111,7 @@
         });
       });
     }
-  
+
     function renderContent() {
       const current = tabData.find(t => t.key === activeTab);
       contentContainer.innerHTML = current.items.map(item => `
@@ -122,11 +122,11 @@
         </div>
       `).join('');
     }
-  
+
     renderTabs();
     renderContent();
   </script>
-  
+
 
 
 </body>

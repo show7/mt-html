@@ -5,31 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>个人中心</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            fadeInUp: 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-          },
-        }
-      }
-    }
-  </script>
-  <!-- Include components.js for header and footer -->
+  <script src="js/tailwindcss.js"></script>
   <script src="js/components.js"></script>
+  <script src="js/tailwindcss.config.js"></script>
 </head>
 
 <body class="bg-gray-50 font-sans bg-[#F5F5F7]">
 
-  <div class="container mx-auto flex flex-col md:flex-row min-h-[calc(100vh-250px)] md:gap-8 px-4 py-6">
+  <div class="container mx-auto flex flex-col md:flex-row min-h-[calc(100vh-250px)] md:gap-8  py-6">
     <!-- 左侧/上方 Tabs -->
     <div class="md:w-64 w-full bg-white rounded md:rounded-none mb-4 md:mb-0">
       <ul id="sidebarTabs" class="flex md:flex-col p-6 ">
@@ -71,8 +54,7 @@
             <input type="email" value="123werfsd@gmail.com"
               class="flex-1 px-4 w-full sm:w-10 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red-300" />
           </div>
-          <button onclick="alert('保存成功')"
-            class="bg-red-700 text-white px-6 py-2 rounded hover:bg-red-800 transition">
+          <button onclick="alert('保存成功')" class="bg-red-700 text-white px-6 py-2 rounded hover:bg-red-800 transition">
             保存
           </button>
           <script>
@@ -80,7 +62,7 @@
               const openid = document.getElementById('openid').textContent.trim();
               const phone = document.getElementById('phone').value.trim();
               const email = document.getElementById('email').value.trim();
-          
+
               // 简单校验一下
               if (!/^1\d{10}$/.test(phone)) {
                 alert('手机号格式不正确');
@@ -90,14 +72,14 @@
                 alert('邮箱格式不正确');
                 return;
               }
-          
+
               // 模拟提交
               const data = {
                 openid,
                 phone,
                 email
               };
-          
+
               console.log('提交的数据是：', data);
               alert('保存成功');
             }
@@ -107,7 +89,7 @@
 
       <!-- 购买记录 Tab -->
       <div id="tab-purchase" class="tab-content hidden block">
-        <div  class="block">
+        <div class="block">
           <h2 class="text-xl font-semibold mb-6 ">购买记录</h2>
           <div class="overflow-x-auto">
             <table class="min-w-full bg-white table-auto text-[#666666] text-sm">
@@ -131,14 +113,14 @@
               </tbody>
             </table>
           </div>
-          
+
         </div>
-        
+
       </div>
 
       <!-- 下载记录 Tab -->
       <div id="tab-download" class="tab-content hidden ">
-        <div  class="block">
+        <div class="block">
           <h2 class="text-xl font-semibold mb-6 ">下载记录</h2>
           <div class="overflow-x-auto">
             <table class="min-w-full bg-white table-auto text-[#666666] text-sm">
@@ -156,7 +138,7 @@
               </tbody>
             </table>
           </div>
-          
+
         </div>
       </div>
     </div>
