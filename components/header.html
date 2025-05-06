@@ -1,33 +1,35 @@
 <!-- 顶部导航栏 -->
-<header class="sticky top-0 left-0 z-50 w-full bg-[#FAFAFA] container">
-  <div class="flex items-center justify-between  py-3 mx-auto max-w-5xl md:justify-start md:gap-32">
-    <div class="flex items-center gap-2">
-      <a href="/"> <img src="assets/icon.png" alt="Logo" class="h-6"></a>
+<header class="sticky top-0 left-0 z-50 w-full bg-[#FAFAFA] ">
+  <div class="container">
+    <div class="flex items-center justify-between  py-3 mx-auto max-w-5xl md:justify-start md:gap-32">
+      <div class="flex items-center gap-2">
+        <a href="/"> <img src="assets/icon.png" alt="Logo" class="h-6"></a>
+      </div>
+      <nav class="hidden space-x-6 text-xs text-[#323232] md:flex items-center justify-between flex-1">
+        <a href="index.html" class="hover:text-red-500">首页</a>
+        <a href="#" class="hover:text-red-500">功能介绍</a>
+        <a href="vip.html" class="hover:text-red-500">会员权益</a>
+        <a href="down1.html" class="hover:text-red-500">下载中心</a>
+        <a href="#" class="hover:text-red-500">帮助</a>
+        <a href="#" class="hover:text-red-500">系统学习</a>
+        <img class="w-[1.05rem] h-[1.05rem] hidden md:block" src="assets/seaarch-icon.png" alt="">
+        <a href="user.html">
+          <img class="w-7 h-7 hidden md:block cursor-pointer" src="assets/user.png" alt="用户头像" />
+        </a>
+      </nav>
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
-    <nav class="hidden space-x-6 text-xs text-[#323232] md:flex items-center justify-between flex-1">
-      <a href="index.html" class="hover:text-red-500">首页</a>
-      <a href="#" class="hover:text-red-500">功能介绍</a>
-      <a href="vip.html" class="hover:text-red-500">会员权益</a>
-      <a href="down1.html" class="hover:text-red-500">下载中心</a>
-      <a href="#" class="hover:text-red-500">帮助</a>
-      <a href="#" class="hover:text-red-500">系统学习</a>
-      <img class="w-[1.05rem] h-[1.05rem] hidden md:block" src="assets/seaarch-icon.png" alt="">
-      <a href="user.html">
-        <img class="w-7 h-7 hidden md:block cursor-pointer" src="assets/user.png" alt="用户头像" />
-      </a>
-    </nav>
-    <button id="menu-btn" class="md:hidden focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
-  <div id="mobile-menu" class="hidden px-4 pb-4 bg-white md:hidden">
-    <a href="index.html" class="block py-2">首页</a>
-    <a href="#" class="block py-2">功能介绍</a>
-    <a href="vip.html" class="block py-2">会员权益</a>
-    <a href="down1.html" class="block py-2">下载中心</a>
-    <a href="#" class="block py-2">帮助</a>
-    <a href="#" class="block py-2">系统学习</a>
+    <div id="mobile-menu" class="hidden px-4 pb-4 bg-white md:hidden">
+      <a href="index.html" class="block py-2">首页</a>
+      <a href="#" class="block py-2">功能介绍</a>
+      <a href="vip.html" class="block py-2">会员权益</a>
+      <a href="down1.html" class="block py-2">下载中心</a>
+      <a href="#" class="block py-2">帮助</a>
+      <a href="#" class="block py-2">系统学习</a>
+    </div>
   </div>
 </header>

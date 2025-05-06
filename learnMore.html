@@ -12,123 +12,126 @@
   <script src="js/tailwindcss.config.js"></script>
 </head>
 
-<body class="container text-gray-900 bg-[#F5F5F7]">
-  <content class="pt-24 bg-white shadow">
-    <div class="flex items-center justify-between mx-auto  px-4">
-      <div class="flex items-center gap-2 relative mb-10 mt-10">
-        <img src="assets/logo.png" alt="Logo" class="h-[5.312rem]">
-        <span class="text-lg font-bold absolute left-24 top-14">咨询：13382909208</span>
+<body class=" text-gray-900 bg-[#F5F5F7]">
+  <div class="container">
+    <content class="pt-24 bg-white shadow">
+      <div class="flex items-center justify-between mx-auto  px-4">
+        <div class="flex items-center gap-2 relative mb-10 mt-10">
+          <img src="assets/logo.png" alt="Logo" class="h-[5.312rem]">
+          <span class="text-lg font-bold absolute left-24 top-14">咨询：13382909208</span>
+        </div>
+        <button class="px-10 py-1 text-white bg-[#AF0000] rounded-full hover:bg-red-700">下载</button>
       </div>
-      <button class="px-10 py-1 text-white bg-[#AF0000] rounded-full hover:bg-red-700">下载</button>
-    </div>
-  </content>
-  <nav class="mx-auto bg-white border-t border-b border-gray-200 md:px-16">
-    <div class="flex px-4 mx-auto text-[1.25rem] text-center  gap-10" id="tabs"></div>
-  </nav>
+    </content>
+    <nav class="mx-auto bg-white border-t border-b border-gray-200 md:px-16">
+      <div class="flex px-4 mx-auto text-[1.25rem] text-center  gap-10" id="tabs"></div>
+    </nav>
 
-  <main class="py-8 mx-auto">
-    <div id="tab-content" class="grid grid-cols-1 gap-5 sm:grid-cols-2"></div>
-  </main>
+    <main class="py-8 mx-auto">
+      <div id="tab-content" class="grid grid-cols-1 gap-5 sm:grid-cols-2"></div>
+    </main>
+  </div>
 
-  <script>
-    const tabData = [
-      {
-        key: 'quick',
-        title: '快捷工具',
-        subtitle: 'Quick Tools',
-        items: [
-          {
-            title: '自适应缩放',
-            desc: '更加高效的缩放工具，实现对空间的快速缩放',
-            img: 'assets/excame-demo1.png'
-          },
-          {
-            title: '快速墙体',
-            desc: '更加高效的搭建工具，实现对空间的快速搭放',
-            img: 'assets/excame-demo2.png'
-          }
-        ]
-      },
-      {
-        key: 'interior',
-        title: '室内设计',
-        subtitle: 'Interior design',
-        items: [
-          {
-            title: '沙发布局',
-            desc: '精心设计的客厅沙发布局，提升空间感',
-            img: 'assets/interior1.png'
-          },
-          {
-            title: '灯光搭配',
-            desc: '温馨灯光设计，营造舒适居住氛围',
-            img: 'assets/interior2.png'
-          }
-        ]
-      },
-      {
-        key: 'custom',
-        title: '全屋定制',
-        subtitle: 'Cabinet',
-        items: [
-          {
-            title: '定制衣柜',
-            desc: '根据户型尺寸定制，合理利用每一寸空间',
-            img: 'assets/custom1.png'
-          },
-          {
-            title: '厨房一体化',
-            desc: '打造极简高效的厨房操作台',
-            img: 'assets/custom2.png'
-          }
-        ]
-      }
-    ];
 
-    const tabsContainer = document.getElementById('tabs');
-    const contentContainer = document.getElementById('tab-content');
 
-    let activeTab = tabData[0].key;
 
-    function renderTabs() {
-      tabsContainer.innerHTML = '';
-      tabData.forEach(tab => {
-        const isActive = tab.key === activeTab;
-        tabsContainer.innerHTML += `
+
+</body>
+<script>
+  const tabData = [
+    {
+      key: 'quick',
+      title: '快捷工具',
+      subtitle: 'Quick Tools',
+      items: [
+        {
+          title: '自适应缩放',
+          desc: '更加高效的缩放工具，实现对空间的快速缩放',
+          img: 'assets/excame-demo1.png'
+        },
+        {
+          title: '快速墙体',
+          desc: '更加高效的搭建工具，实现对空间的快速搭放',
+          img: 'assets/excame-demo2.png'
+        }
+      ]
+    },
+    {
+      key: 'interior',
+      title: '室内设计',
+      subtitle: 'Interior design',
+      items: [
+        {
+          title: '沙发布局',
+          desc: '精心设计的客厅沙发布局，提升空间感',
+          img: 'assets/interior1.png'
+        },
+        {
+          title: '灯光搭配',
+          desc: '温馨灯光设计，营造舒适居住氛围',
+          img: 'assets/interior2.png'
+        }
+      ]
+    },
+    {
+      key: 'custom',
+      title: '全屋定制',
+      subtitle: 'Cabinet',
+      items: [
+        {
+          title: '定制衣柜',
+          desc: '根据户型尺寸定制，合理利用每一寸空间',
+          img: 'assets/custom1.png'
+        },
+        {
+          title: '厨房一体化',
+          desc: '打造极简高效的厨房操作台',
+          img: 'assets/custom2.png'
+        }
+      ]
+    }
+  ];
+
+  const tabsContainer = document.getElementById('tabs');
+  const contentContainer = document.getElementById('tab-content');
+
+  let activeTab = tabData[0].key;
+
+  function renderTabs() {
+    tabsContainer.innerHTML = '';
+    tabData.forEach(tab => {
+      const isActive = tab.key === activeTab;
+      tabsContainer.innerHTML += `
           <a href="#" data-tab="${tab.key}"
              class="tab-link py-3 px-2 ${isActive ? 'font-bold text-[#AB0101] border-b-4 border-[#AB0101]' : ''}">
             ${tab.title}
             <div class="text-sm ${isActive ? 'text-[#AB0101]' : 'text-gray-400'}">${tab.subtitle}</div>
           </a>`;
-      });
+    });
 
-      document.querySelectorAll('.tab-link').forEach(link => {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          activeTab = link.getAttribute('data-tab');
-          renderTabs();
-          renderContent();
-        });
+    document.querySelectorAll('.tab-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        activeTab = link.getAttribute('data-tab');
+        renderTabs();
+        renderContent();
       });
-    }
+    });
+  }
 
-    function renderContent() {
-      const current = tabData.find(t => t.key === activeTab);
-      contentContainer.innerHTML = current.items.map(item => `
+  function renderContent() {
+    const current = tabData.find(t => t.key === activeTab);
+    contentContainer.innerHTML = current.items.map(item => `
         <div class="p-10 bg-white shadow rounded-[28px]">
           <h2 class="mb-2 text-[2.5rem] font-bold text-center">${item.title}</h2>
           <p class="mb-4 text-base text-center">${item.desc}</p>
           <img src="${item.img}" alt="${item.title}" class="mx-auto">
         </div>
       `).join('');
-    }
+  }
 
-    renderTabs();
-    renderContent();
-  </script>
-
-
-
-</body>
+  renderTabs();
+  renderContent();
+</script>
 
 </html>
